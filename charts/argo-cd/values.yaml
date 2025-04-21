@@ -1,0 +1,21 @@
+argo-cd:
+  # Disables the integration with external authentication providers
+  dex:
+    enabled: false
+
+  # Disables the notifications controller
+  # Notify users about changes to application state
+  notifications:
+    enabled: false
+
+  # Disables the automated generation of Argo CD applications
+  # (I'm still not sure what this is)
+  applicationSet:
+    enabled: false
+
+  # Insecure since we're using a local K8s server without TLS
+  # I'll probably need to set this to true once I have a proper
+  # hardware to host the K8s cluster 
+  server:
+    extraArgs:
+      - --insecure
